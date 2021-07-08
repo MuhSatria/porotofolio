@@ -206,8 +206,7 @@ export default {
     window.addEventListener('scroll', this.welcomeHandle)
     window.addEventListener('scroll', this.showbacktoTop)
     window.addEventListener('scroll', this.animationExperience)
-    console.log('height body ', document.body.scrollHeight)
-    console.log('id experience hieght ', document.getElementById('experience').offsetTop)
+    // console.log('height body ', document.body.scrollHeight)
   },
   methods: {
     welcomeHandle () {
