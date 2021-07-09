@@ -15,6 +15,7 @@ body {
   top: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9;
+  transition: all .4s ease-in-out;
   &.show-overlay {
       visibility: visible;
       opacity: 1;

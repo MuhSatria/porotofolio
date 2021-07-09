@@ -6,12 +6,58 @@
     <div class="back-top" @click="backToTop()">
       <img src="@/assets/icons/Icon-back-left-outline.svg" alt="">
     </div>
-    <div class="navigation">
-      <input type="checkbox" class="navigation__checkbox" id="nav-toggle" />
+    <div class="box-navigation" id="sidebarMenu">
 
-      <label for="nav-toggle" class="navigation__button">
-        <span class="navigation__icon">&nbsp;</span>
-      </label>
+      <div class="navigation">
+        <input type="checkbox" class="navigation__checkbox" id="nav-toggle" @change="statusInput()" v-model="status" />
+
+        <label for="nav-toggle" class="navigation__button">
+          <span class="navigation__icon">&nbsp;</span>
+        </label>
+
+        <div class="navigation__background"></div>
+        <div class="navigation__content">
+          <div class="mobile-show">
+            <h2 class="navigation__content__title">About Me</h2>
+            <p class="text">Saya dapat merumuskan suatu masalah dan menganalisis data untuk membuat sebuah konsep wireframe model apps / web design, saya menggunakan beberapa tools seperti Adoble Photoshop, Illustrator, Adobe XD, Figma inVision dan Marvelapp. <br /> <br /> Selain itu saya juga sangat meminati bidang Frontend Web Developer, di project-project sebelumnya saya menggunakan Vue / Nuxt, saat ini saya sangat tertarik untuk membuat animasi dengan css dan javascript</p>
+          </div>
+          <h2 class="navigation__content__title">Contact</h2>
+          <div class="text-group">
+            <p class="label">Email</p>
+            <p class="text" id="email">muh.satria0410@gmail.com</p>
+            <p class="label">Telephone</p>
+            <p class="text" id="telp">082323444316</p>
+          </div>
+          <h2 class="navigation__content__title">Project</h2>
+          <div class="text-group">
+            <p class="label">Landingpage Bukusaku</p>
+            <p class="text link" id="bukusaku" @click="goTo('http://bukusaku.herokuapp.com')">bukusaku.herokuapp.com</p>
+            <p class="label">Monggovest</p>
+            <p class="text link" id="bukusaku" @click="goTo('http://monggovestplus.herokuapp.com')">monggovestplus.herokuapp.com</p>
+            <p class="label">Tour Management System</p>
+            <p class="text link" id="toms" @click="goTo('http://toms-p.onero.id')">Toms Principle</p>
+            <p class="text link" id="toms" @click="goTo('http://toms-t.onero.id')">Toms Traveler</p>
+            <p class="text link" id="toms" @click="goTo('http://toms-ta.onero.id')">Toms Travel Agent</p>
+            <p class="label">Landingpage Bukusaku</p>
+            <p class="text link" id="shining" @click="goTo('http://shining-u-dev.onero.id')">Shining Marketplace Apps</p>
+          </div>
+          <h2 class="navigation__content__title">Social Media</h2>
+          <div class="box-group">
+            <div class="box-group__item">
+              <img src="@/assets/icons/dribble.svg" alt="icon">
+              <p class="label link" @click="goTo('https://dribbble.com/IALycoris')">Dribble</p>
+            </div>
+            <div class="box-group__item">
+              <img src="@/assets/icons/github.svg" alt="icon">
+              <p class="label link" @click="goTo('https://github.com/MuhSatria')">Github</p>
+            </div>
+            <div class="box-group__item">
+              <img src="@/assets/icons/linkedin.svg" alt="icon">
+              <p class="label link" @click="goTo('https://www.linkedin.com/in/muhammad-satria-3a2521168/')">Linkedin</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
     <div class="welcome-page" id="welcome">
@@ -21,7 +67,7 @@
           <h2 class="title-header">I'm Muhammad Satria</h2>
           <p class="desc">Frontend Web Developer / UI Designer</p>
           <nuxt-link to="#" class="button-custom">
-            <span>Know More</span>
+            <span>Download CV</span>
           </nuxt-link>
         </div>
       </div>
@@ -43,7 +89,7 @@
           v-for="(educations, index_edu) in education"
           :key="index_edu"
           :id="education[index_edu].id"
-          class="col">
+          class="column">
           <div class="card">
             <div class="card__header">
               <span>{{ education[index_edu].year }}</span>
@@ -56,22 +102,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="swipe-wrapper">
-        <div
-          v-for="(educations, index_edu) in education"
-          :key="index_edu"
-          :id="education[index_edu].id"
-          class="card-slider">
-          <div class="card-slider__header">
-            <span>{{ education[index_edu].year }}</span>
-          </div>
-          <div class="card-slider__body">
-            <p class="title">{{ education[index_edu].name }}</p>
-            <p class="department">{{ education[index_edu].department }}</p>
-            <p class="options">{{ education[index_edu].options }}</p>
-          </div>
-        </div>
-      </div> -->
       <div class="box-skill">
         <h1 class="box-skill__title">Skill</h1>
         <div class="box-grid">
@@ -98,7 +128,7 @@
             <div
               v-for="(experienc_data, index_expe) in experience"
               :key="index_expe"
-              class="col">
+              class="column">
               <div class="card">
                 <div class="card__header">
                   <span>{{ experience[index_expe].year }}</span>
@@ -113,11 +143,11 @@
           </div>
         </div>
       </div>
-      <div class="box-other">
+      <!-- <div class="box-other">
         <p class="box-other__items">Social Media</p>
         <p class="box-other__items">Hobby</p>
         <p class="box-other__items">Contact</p>
-      </div>
+      </div> -->
     </div>
     <div class="overlay" id="overlayBg"></div>
   </div>
@@ -129,6 +159,7 @@ export default {
   data () {
     return {
       title: 'Muhammad Satria',
+      status: false,
       education: [
         {
           id: 'smk',
@@ -202,13 +233,34 @@ export default {
       title: this.title + ' | Portofolio'
     }
   },
+  created () {
+    console.log('status ', this.status)
+  },
   mounted () {
     window.addEventListener('scroll', this.welcomeHandle)
     window.addEventListener('scroll', this.showbacktoTop)
     window.addEventListener('scroll', this.animationExperience)
-    // console.log('height body ', document.body.scrollHeight)
+    console.log('height body ', document.body.scrollHeight)
   },
   methods: {
+    goTo (link) {
+      window.open(link, '_blank')
+    },
+    statusInput () {
+      const boxmenu = document.getElementById('sidebarMenu')
+      const overlyBg = document.getElementById('overlayBg')
+      console.log('status ', this.status)
+      if (this.status === true) {
+        boxmenu.style.right = '0'
+        overlyBg.style.visibility = 'visible'
+        overlyBg.style.opacity = '1'
+      } else {
+        boxmenu.style.right = '-80%'
+        // overlyBg.classList.remove('show-overlay')
+        overlyBg.style.visibility = 'hidden'
+        overlyBg.style.opacity = '0'
+      }
+    },
     welcomeHandle () {
       // const welcome = document.querySelector('.welcome-page')
       const menuHeader = document.querySelector('.box-content')

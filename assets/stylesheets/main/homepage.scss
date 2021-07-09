@@ -116,12 +116,14 @@
     .box-about {
       position: absolute;
       bottom: 0;
-      // transform: translateY(0);
       width: 78vw;
       margin-top: 38px;
       opacity: 0;
       transition: opacity .5s, transform .8s ease-in-out;
-      // transition: transform .7s ease-in-out;
+
+      @media only screen and (max-width: 425px) {
+        display: none;
+      }
       &__title {
         font-size: 4rem;
         opacity: .9;
@@ -166,7 +168,8 @@
       @media only screen and (max-width: 648px) {
         grid-template-columns: 1fr;
       }
-      .col {
+      .column {
+        padding: 12px;
         .card {
           background-color: #4a2667;
           overflow: hidden;
@@ -232,6 +235,7 @@
       }
       .box-grid {
         display: flex;
+        flex-wrap: wrap;
         .card {
           img {
             width: 80px;
@@ -277,6 +281,9 @@
 
           @media only screen and (max-width: 768px) {
             font-size: 6rem;
+          }
+          @media only screen and (max-width: 425px) {
+            font-size: 3.6rem;
           }
   
           &.show-text {
@@ -327,7 +334,8 @@
           @media only screen and (max-width: 648px) {
             grid-template-columns: 1fr;
           }
-          .col {
+          .column {
+            padding: 12px;
             .card {
               background-color: #4a2667;
               overflow: hidden;
