@@ -285,6 +285,9 @@
   
           &.show-text {
             height: 192px;
+            @media only screen and (max-width: 768px) {
+              height: 130px;
+            }
             @media only screen and (max-width: 425px) {
               height: 92px;
             }
