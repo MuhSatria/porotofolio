@@ -7,7 +7,7 @@
   background-color: #121212;
   transition: all .5s ease-in-out;
 
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     width: calc(100% - 20%);
   }
 
@@ -20,6 +20,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  overflow-y: auto;
   &__checkbox {
     display: none;
   }
@@ -41,30 +42,11 @@
     }
   }
 
-  // &__background {
-  //   height: 2.5rem;
-  //   width: 2.5rem;
-  //   border-radius: 50%;
-  //   position: fixed;
-  //   top: 2rem;
-  //   right: 2rem;
-  //   background-image: radial-gradient(green, gray);
-  //   z-index: 100;
-  //   transition: transform .8s cubic-bezier(0.86, 0, 0.265, 1.55);
-  // }
-
   &__content {
     height: 100%;
     padding-top: 5rem;
     padding-left: 2rem;
     padding-right: 2rem;
-
-    .mobile-show {
-      display: none;
-      @media only screen and (max-width: 425px) {
-        display: block;
-      }
-    }
 
     &__title {
       margin-bottom: 18px;
@@ -96,7 +78,7 @@
     .box-group {
       display: flex;
       &__item {
-        margin-right: 12px;
+        margin-right: 16px;
         text-align: center;
         img {
           width: 34px;

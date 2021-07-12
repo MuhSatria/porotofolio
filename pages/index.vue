@@ -17,10 +17,6 @@
 
         <div class="navigation__background"></div>
         <div class="navigation__content">
-          <div class="mobile-show">
-            <h2 class="navigation__content__title">About Me</h2>
-            <p class="text">Saya dapat merumuskan suatu masalah dan menganalisis data untuk membuat sebuah konsep wireframe model apps / web design, saya menggunakan beberapa tools seperti Adoble Photoshop, Illustrator, Adobe XD, Figma inVision dan Marvelapp. <br /> <br /> Selain itu saya juga sangat meminati bidang Frontend Web Developer, di project-project sebelumnya saya menggunakan Vue / Nuxt, saat ini saya sangat tertarik untuk membuat animasi dengan css dan javascript</p>
-          </div>
           <h2 class="navigation__content__title">Contact</h2>
           <div class="text-group">
             <p class="label">Email</p>
@@ -55,6 +51,10 @@
               <img src="@/assets/icons/linkedin.svg" alt="icon">
               <p class="label link" @click="goTo('https://www.linkedin.com/in/muhammad-satria-3a2521168/')">Linkedin</p>
             </div>
+            <div class="box-group__item">
+              <img src="@/assets/icons/pixiv.svg" alt="icon">
+              <p class="label link" @click="goTo('https://www.pixiv.net/en/users/56886238')">Pixiv</p>
+            </div>
           </div>
         </div>
       </div>
@@ -66,9 +66,9 @@
           <h4>Hi</h4>
           <h2 class="title-header">I'm Muhammad Satria</h2>
           <p class="desc">Frontend Web Developer / UI Designer</p>
-          <nuxt-link to="#" class="button-custom">
+          <a :href="files.items" download class="button-custom">
             <span>Download CV</span>
-          </nuxt-link>
+          </a>
         </div>
       </div>
       <!-- show hanya di dekstop, dan saat di scroll 400, cek javascript -->
@@ -225,7 +225,11 @@ export default {
           year: '3 Bulan Project',
           job: 'Sliceing UI Design to Html css code'
         }
-      ]
+      ],
+      files: {
+        items: '/CV-Muhammad-Satria.pdf',
+        name: 'CV Muhammad Satria'
+      }
     }
   },
   head () {
@@ -246,10 +250,13 @@ export default {
     goTo (link) {
       window.open(link, '_blank')
     },
+    // downloadItem ({ items, name }) {
+    //   debugger
+    // },
     statusInput () {
       const boxmenu = document.getElementById('sidebarMenu')
       const overlyBg = document.getElementById('overlayBg')
-      console.log('status ', this.status)
+      // console.log('status ', this.status)
       if (this.status === true) {
         boxmenu.style.right = '0'
         overlyBg.style.visibility = 'visible'
