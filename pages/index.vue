@@ -244,8 +244,8 @@ export default {
     window.addEventListener('scroll', this.welcomeHandle)
     window.addEventListener('scroll', this.showbacktoTop)
     window.addEventListener('scroll', this.animationExperience)
-    console.log('height body ', document.body.scrollHeight)
-    console.log('width body ', window.screen.width)
+    // console.log('height body ', document.body.scrollHeight)
+    // console.log('width body ', window.screen.width)
   },
   methods: {
     goTo (link) {
@@ -274,10 +274,14 @@ export default {
       const menuHeader = document.querySelector('.box-content')
       const aboutInfo = document.querySelector('.box-about')
       const distance = window.scrollY
+      var width = window.screen.width
 
       menuHeader.style.transform = 'translateY(' + distance * -.8 + 'px)'
       
-      if (distance >= 400) {
+      if (distance >= 400 && width <= 720) {
+        aboutInfo.style.opacity = '1';
+        aboutInfo.style.transform = 'translateY(' + -60 + 'px)'
+      } else if (distance >= 400) {
         aboutInfo.style.opacity = '1';
         aboutInfo.style.transform = 'translateY(' + -200 + 'px)'
       } else {
@@ -321,10 +325,12 @@ export default {
       const targetUp = document.getElementById('headerExperienc')
       const hideBtnClick = document.getElementById('showBtn')
       const expericneData = document.getElementById('experience-data')
+      var width = window.screen.width
 
       targetUp.style.transform = 'translateY(' + -250 + 'px)'
       hideBtnClick.style.opacity = '0'
       hideBtnClick.style.visibility = 'hidden'
+      // if (width >= 645 ) {}
       // tambahkan if else jika widthnya 645 tambahkan css translayeYnya
       setTimeout(() => {
         expericneData.style.transform = 'translateY(' + -250 + 'px)'

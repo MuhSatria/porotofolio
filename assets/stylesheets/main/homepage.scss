@@ -121,9 +121,6 @@
       opacity: 0;
       transition: opacity .5s, transform .8s ease-in-out;
 
-      @media only screen and (max-width: 425px) {
-        display: none;
-      }
       &__title {
         font-size: 4rem;
         opacity: .9;
@@ -282,7 +279,7 @@
           @media only screen and (max-width: 768px) {
             font-size: 6rem;
           }
-          @media only screen and (max-width: 425px) {
+          @media only screen and (max-width: 448px) {
             font-size: 3.6rem;
           }
   
@@ -325,7 +322,7 @@
         display: flex;
         justify-content: center;
         transition: all .5s ease-in-out;
-        @media only screen and (max-width: 425px) {
+        @media only screen and (max-width: 648px) {
           height: 70vh;
         }
         .wrapper {
@@ -340,7 +337,7 @@
           @media only screen and (max-width: 648px) {
             grid-template-columns: 1fr;
           }
-          @media only screen and (max-width: 425px) {
+          @media only screen and (max-width: 648px) {
             overflow-y: auto;
           }
           .column {
@@ -353,7 +350,7 @@
               height: 100%;
               transition: all .6s ease-in-out;
               box-shadow: 0 30px 50px -20px rgb(46, 6, 66);
-              @media only screen and (max-width: 425px) {
+              @media only screen and (max-width: 648px) {
                 box-shadow: none;
               }
   
