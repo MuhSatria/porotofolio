@@ -245,6 +245,7 @@ export default {
     window.addEventListener('scroll', this.showbacktoTop)
     window.addEventListener('scroll', this.animationExperience)
     console.log('height body ', document.body.scrollHeight)
+    console.log('width body ', window.screen.width)
   },
   methods: {
     goTo (link) {
@@ -324,6 +325,7 @@ export default {
       targetUp.style.transform = 'translateY(' + -250 + 'px)'
       hideBtnClick.style.opacity = '0'
       hideBtnClick.style.visibility = 'hidden'
+      // tambahkan if else jika widthnya 645 tambahkan css translayeYnya
       setTimeout(() => {
         expericneData.style.transform = 'translateY(' + -250 + 'px)'
         expericneData.style.opacity = '1'

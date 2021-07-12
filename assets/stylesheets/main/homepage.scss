@@ -255,9 +255,9 @@
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
-    min-height: min-content;
-    max-height: 100vh;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: min-content;
+    height: min-content;
     background: linear-gradient(0deg, #121212, #582a7e);
     // background: linear-gradient(#582A7D, #121212);
     display: flex;
@@ -288,6 +288,9 @@
   
           &.show-text {
             height: 192px;
+            @media only screen and (max-width: 425px) {
+              height: 92px;
+            }
           }
         }
   
@@ -322,6 +325,9 @@
         display: flex;
         justify-content: center;
         transition: all .5s ease-in-out;
+        @media only screen and (max-width: 425px) {
+          height: 70vh;
+        }
         .wrapper {
           display: grid;
           position: relative;
@@ -334,6 +340,9 @@
           @media only screen and (max-width: 648px) {
             grid-template-columns: 1fr;
           }
+          @media only screen and (max-width: 425px) {
+            overflow-y: auto;
+          }
           .column {
             padding: 12px;
             .card {
@@ -344,6 +353,9 @@
               height: 100%;
               transition: all .6s ease-in-out;
               box-shadow: 0 30px 50px -20px rgb(46, 6, 66);
+              @media only screen and (max-width: 425px) {
+                box-shadow: none;
+              }
   
               &__header {
                 background-color: rgba(18, 18, 18, 0.2);
