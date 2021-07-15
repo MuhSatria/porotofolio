@@ -25,7 +25,7 @@
     bottom: 24px;
     right: 24px;
     padding: 12px 14px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(12, 12, 12, 0.4);
     cursor: pointer;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
     transition: all .5s ease-in-out;
@@ -147,7 +147,8 @@
     min-height: 100vh;
     max-height: max-content;
     height: auto;
-    background: linear-gradient( #121212, #582a7e);
+    // background: linear-gradient( transparent, #582a7e);
+    background: linear-gradient(0deg, rgba(88,42,126,1) 74%, rgba(18,18,18,0) 90%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,6 +170,7 @@
         padding: 12px;
         .card {
           background-color: #4a2667;
+          color: #fff;
           overflow: hidden;
           border-radius: 8px;
           width: 100%;
@@ -229,6 +231,7 @@
       margin-top: 62px;
       &__title {
         text-align: center;
+        color: #fff;
       }
       .box-grid {
         display: flex;
@@ -255,8 +258,8 @@
     min-height: 100vh;
     max-height: min-content;
     height: min-content;
-    background: linear-gradient(0deg, #121212, #582a7e);
-    // background: linear-gradient(#582A7D, #121212);
+    // background: linear-gradient(0deg, transparent, #582a7e);
+    background: linear-gradient(0deg, rgba(18,18,18,0) 0%, rgba(88,42,126,1) 50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -279,6 +282,9 @@
           @media only screen and (max-width: 768px) {
             font-size: 6rem;
           }
+          @media only screen and (max-width: 560px) {
+            font-size: 4.5rem;
+          }
           @media only screen and (max-width: 448px) {
             font-size: 3.6rem;
           }
@@ -287,6 +293,9 @@
             height: 192px;
             @media only screen and (max-width: 768px) {
               height: 130px;
+            }
+            @media only screen and (max-width: 560px) {
+              height: 100px;
             }
             @media only screen and (max-width: 425px) {
               height: 92px;
@@ -302,6 +311,7 @@
           justify-content: flex-end;
           transition: all .5s ease-out;
           .click-btn {
+            color: #fff;
             align-self: flex-end;
             animation-duration: 2s;
             animation-iteration-count: infinite;
@@ -346,6 +356,7 @@
           .column {
             padding: 12px;
             .card {
+              color: #fff;
               background-color: #4a2667;
               overflow: hidden;
               border-radius: 8px;
@@ -399,7 +410,6 @@
   font-size: 12rem;
   font-weight: 800;
   opacity: .1;
-  color: #fff;
 }
 
 // .float-card {

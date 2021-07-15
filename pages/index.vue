@@ -3,6 +3,7 @@
     <div class="header-logo">
       <div class="logo">Logo</div>
     </div>
+    <!-- <div class="cube" id="testingCube"></div> -->
     <div class="back-top" @click="backToTop()">
       <img src="@/assets/icons/Icon-back-left-outline.svg" alt="">
     </div>
@@ -22,7 +23,7 @@
             <p class="label">Email</p>
             <p class="text" id="email">muh.satria0410@gmail.com</p>
             <p class="label">Telephone</p>
-            <p class="text" id="telp">082323444316</p>
+            <p class="text" id="telp">NaN</p>
           </div>
           <h2 class="navigation__content__title">Project</h2>
           <div class="text-group">
@@ -34,7 +35,7 @@
             <p class="text link" id="toms" @click="goTo('http://toms-p.onero.id')">Toms Principle</p>
             <p class="text link" id="toms" @click="goTo('http://toms-t.onero.id')">Toms Traveler</p>
             <p class="text link" id="toms" @click="goTo('http://toms-ta.onero.id')">Toms Travel Agent</p>
-            <p class="label">Landingpage Bukusaku</p>
+            <p class="label">Marketplace Bikin.co</p>
             <p class="text link" id="shining" @click="goTo('http://shining-u-dev.onero.id')">Shining Marketplace Apps</p>
           </div>
           <h2 class="navigation__content__title">Social Media</h2>
@@ -64,11 +65,26 @@
       <div class="box-content">
         <div class="box-content__desc">
           <h4>Hi</h4>
-          <h2 class="title-header">I'm Muhammad Satria</h2>
+          <h1 class="ml6" id="m16">
+            <span class="text-wrapper">
+              <span class="letters" id="letters">I'm Muhammad Satria</span>
+            </span>
+          </h1>
           <p class="desc">Frontend Web Developer / UI Designer</p>
-          <a :href="files.items" download class="button-custom">
+          <a v-show="$vuetify.theme.dark === true" :href="files.items" download class="button-custom">
             <span>Download CV</span>
           </a>
+          <a v-show="$vuetify.theme.dark === false" :href="files.items" download class="button-ripple" id="btnRipples" @click="btnRipple">
+            Download CV
+          </a>
+          <!-- testing switch toggle dark or light mode -->
+          <v-switch
+            v-model="$vuetify.theme.dark"
+            hint="This toggles the global state of the Vuetify theme"
+            inset
+            :label="$vuetify.theme.dark ? 'Vuetify Theme Dark' : 'Vuetify Theme Light'"
+            persistent-hint
+          ></v-switch>
         </div>
       </div>
       <!-- show hanya di dekstop, dan saat di scroll 400, cek javascript -->
@@ -239,17 +255,59 @@ export default {
   },
   created () {
     console.log('status ', this.status)
+
   },
   mounted () {
     window.addEventListener('scroll', this.welcomeHandle)
     window.addEventListener('scroll', this.showbacktoTop)
     window.addEventListener('scroll', this.animationExperience)
+    this.testingCube()
+    this.textAnimation()
     // console.log('height body ', document.body.scrollHeight)
     // console.log('width body ', window.screen.width)
   },
   methods: {
+    btnRipple (e) {
+      let x = e.clientX - e.target.offsetLeft
+      let y = e.clientY - e.target.offsetTop
+
+      let ripples = document.createElement('span')
+      let btnRipples = document.getElementById('btnRipples')
+      ripples.style.left = x + 'px'
+      ripples.style.top = y + 'px'
+
+      btnRipples.appendChild(ripples)
+
+      setTimeout(() => {
+        ripples.remove()
+      }, 1000)
+    },
     goTo (link) {
       window.open(link, '_blank')
+    },
+    textAnimation () {
+      if (process.browser) {
+        var textWrapper = document.getElementById('letters')
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>")
+  
+        this.$anime.timeline({ loop: false }).add({
+          targets: '.letter',
+          translateY: ["1.1em", 0],
+          translateZ: 0,
+          duration: 750,
+          delay: (el, i) => 90 * i
+        })
+      }
+    },
+    testingCube () {
+      this.$anime({
+        targets: '#testingCube',
+        translateX: 250,
+        rotate: '1turn',
+        easing: 'easeInOutSine',
+        direction: 'alternate',
+        loop: 4
+      })
     },
     // downloadItem ({ items, name }) {
     //   debugger
@@ -257,7 +315,6 @@ export default {
     statusInput () {
       const boxmenu = document.getElementById('sidebarMenu')
       const overlyBg = document.getElementById('overlayBg')
-      // console.log('status ', this.status)
       if (this.status === true) {
         boxmenu.style.right = '0'
         overlyBg.style.visibility = 'visible'
@@ -270,7 +327,6 @@ export default {
       }
     },
     welcomeHandle () {
-      // const welcome = document.querySelector('.welcome-page')
       const menuHeader = document.querySelector('.box-content')
       const aboutInfo = document.querySelector('.box-about')
       const distance = window.scrollY
@@ -338,24 +394,6 @@ export default {
         expericneData.style.visibility = 'visible'
       }, 500)
     },
-    animationText () {
-      var textTarget = document.querySelector('.menu-experience')
-      textTarget.innerHTML = textTarget.textContent.replace(/\S/g, "<span class='letter'>$&</span>")
-      anime.timeline({ loop: false }).add({
-          target: '.menu-experience .letter',
-          opacity: [0,1],
-          easing: "easeInOutQuad",
-          duration: 2250,
-          delay: (el, i) => 150 * (i+1)
-        }).add({
-          targets: '.menu-experience',
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 1000
-        })
-    },
-
     // back to top function
     showbacktoTop () {
       const elementTop = document.querySelector('.back-top')

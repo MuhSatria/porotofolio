@@ -21,3 +21,58 @@ body {
       opacity: 1;
   }
 }
+
+.cube {
+  position: absolute;
+  top: 15rem;
+  right: 16rem;
+  width: 80px;
+  height: 80px;
+  // background: rgba(255, 192, 203, 0.4);
+  background-color: $maron;
+  z-index: 9;
+  cursor: pointer;
+}
+
+.ml6 {
+  position: relative;
+  font-weight: 900;
+  font-size: 3.3em;
+  .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+    line-height: initial;
+    .letter {
+      display: inline-block;
+      line-height: 1em;
+    }
+  }
+}
+
+.button-ripple {
+  position: relative;
+  display: inline-flex;
+  padding: 12px 36px;
+  color: #fff !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #0162c8, #55e7fc);
+
+  span {
+    position: absolute;
+    overflow: hidden;
+    background: #fff;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: btn-ripple 1s linear infinite;
+  }
+}
