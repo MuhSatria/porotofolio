@@ -7,12 +7,12 @@
     <div class="back-top" @click="backToTop()">
       <img src="@/assets/icons/Icon-back-left-outline.svg" alt="">
     </div>
-    <div class="box-navigation" id="sidebarMenu">
+    <div class="box-navigation" id="sidebarMenu" :style="$vuetify.theme.dark === false ? 'background-color: #d3d3d3' : 'background-color: #121212'">
 
       <div class="navigation">
         <input type="checkbox" class="navigation__checkbox" id="nav-toggle" @change="statusInput()" v-model="status" />
 
-        <label for="nav-toggle" class="navigation__button">
+        <label for="nav-toggle" class="navigation__button" :style="$vuetify.theme.dark === false ? 'background-color: #0162c8' : 'background-color: transparent'">
           <span class="navigation__icon">&nbsp;</span>
         </label>
 
@@ -62,7 +62,7 @@
 
     </div>
     <div class="welcome-page" id="welcome">
-      <div class="box-content">
+      <div class="box-content" :style="$vuetify.theme.dark === false ? 'border-color: #0162c8' : 'border-color: #ffffff'">
         <div class="box-content__desc">
           <h4>Hi</h4>
           <h1 class="ml6" id="m16">
