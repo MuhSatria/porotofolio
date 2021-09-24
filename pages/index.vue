@@ -70,12 +70,12 @@
               <span class="letters" id="letters">I'm Muhammad Satria</span>
             </span>
           </h1>
-          <p class="desc">Frontend Web Developer / UI Designer</p>
-          <a v-show="$vuetify.theme.dark === true" :href="files.items" download class="button-custom">
-            <span>Download CV</span>
+          <p class="desc">Frontend Web Developer / UI & UX Designer</p>
+          <a v-show="$vuetify.theme.dark === true" class="button-custom">
+            <span>Know More</span>
           </a>
-          <a v-show="$vuetify.theme.dark === false" :href="files.items" download class="button-ripple" id="btnRipples" @click="btnRipple">
-            Download CV
+          <a v-show="$vuetify.theme.dark === false" class="button-ripple" id="btnRipples" @click="btnRipple">
+            Know More
           </a>
           <!-- testing switch toggle dark or light mode -->
           <v-switch
@@ -90,7 +90,7 @@
       <!-- show hanya di dekstop, dan saat di scroll 400, cek javascript -->
       <div class="box-about">
         <h2 class="box-about__title">About Me</h2>
-        <p class="box-about__desc">Saya dapat merumuskan suatu masalah dan menganalisis data untuk membuat sebuah konsep wireframe model apps / web design, saya menggunakan beberapa tools seperti Adoble Photoshop, Illustrator, Adobe XD, Figma inVision dan Marvelapp. <br /> <br /> Selain itu saya juga sangat meminati bidang Frontend Web Developer, di project-project sebelumnya saya menggunakan Vue / Nuxt, saat ini saya sangat tertarik untuk membuat animasi dengan css dan javascript</p>
+        <p class="box-about__desc">Hi i am Satria, i can solve problem to create design concept with design thingking from scratch to hight end fidelity design, i use Figma, Adobe Photoshop, Adobe Illustration and other tools to create Ui Design. <br/> <br/>And not just design, i can slicing your design to Html, css, javascript code and i make the website as responsive as possible, i  develope website with Vue.js, for stayling i use scss, sass or stylus, and for function i use javasript. i can use other library like Bootstrap, Vuetify, Bootstrap vue and Firebase to adjust style or function. <br/><br/>I am excited on visual design</p>
       </div>
     </div>
     <div class="about-page">
@@ -181,21 +181,21 @@ export default {
           id: 'smk',
           name: 'SMK Muhammadiyah 1 Sukoharjo',
           year: '2012-2015',
-          department: 'Rekayasa Perangkat Lunak',
+          department: 'Software engineering',
           options: ['html', 'php', 'mysql', 'visual basic', 'adobe photoshop', 'adobe illustrator']
         },
         {
           id: 'bp2ip',
           name: 'BP2IP Tangerang',
           year: '2015',
-          department: 'Teknik Mesin'
+          department: 'Mechanical Engineering'
         },
         {
           id: 'binarUi',
           name: 'Binar Academy Batch 6 Yogyakarta',
           year: '2018',
           department: 'UI / UX',
-          options: ['Konsep Product', 'Analisis Data', 'Resarch', 'Wireframe', 'Scrum', 'Flow Chart', 'Lo-fi & Hi-fi Design Apps & Website']
+          options: ['Product Design', 'Analisis Data', 'Resarch', 'Wireframe', 'Scrum', 'Flow Chart', 'Lo-fi & Hi-fi Design Apps & Website']
         },
         {
           id: 'binarCode',
